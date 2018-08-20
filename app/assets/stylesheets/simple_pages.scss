@@ -1,3 +1,54 @@
 // Place all the styles related to the simple_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  background-color: #F8F9FA;
+  width: 100%;
+  margin: 0 5%;
+}
+
+/* Navigation */
+.nav-link{
+  font-family: 'Oleo Script', cursive;
+  font-size: 2em;
+  margin: 0 20px;
+}
+
+.navbar-brand{
+  margin-left: 20px;
+}
+
+/* end of Navigation */
+
+
+h1{
+  font-family: 'Lobster', cursive;
+  color: #673C5A;
+  text-align: center;
+}
+
+/* Index Page */
+
+#featured-product-heading{
+  text-align: center;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+#featured-product-image{
+  border: 3px solid red;
+  display: block;
+  margin: 0 auto;
+}
+
+/* end of Index Page */
+
+
+
+/* Footer */
+
+
+.fb-page{
+  margin-left: 50%;
+  width: 240px;
+}
+/* end of Footer */
