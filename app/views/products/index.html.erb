@@ -1,29 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+<div class="container-fluid">
+  <div class="row">
     <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-sm">
+        <%= image_tag(product.image_url, class: "img-fluid") unless product.image_url.nil? %>
+        <a href="#"><strong><%= product.name %></strong></a>
+        <p><%= product.description %> Color: <%= product.color %></p>
+        <strong> $<%= product.price%></strong>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+
+
+
 
 <br>
 
