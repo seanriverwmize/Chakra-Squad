@@ -4,14 +4,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <% @products.each do |product| %>
-      <div class="col-sm">
-        <%= image_tag(product.image_url, class: "img-fluid") unless product.image_url.nil? %>
-        <a href="#"><strong><%= product.name %></strong></a>
-        <p><%= product.description %> Color: <%= product.color %></p>
-        <strong> $<%= product.price%></strong>
-      </div>
-    <% end %>
+    <%= render @products %>
   </div>
 </div>
 
