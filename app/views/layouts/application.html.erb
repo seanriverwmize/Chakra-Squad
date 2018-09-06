@@ -28,8 +28,10 @@
       js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="<%=simple_pages_index_path%>"><%= image_tag("chakra_squad_home.png", class: "img-fluid")%></a>
+      <%= link_to image_tag("chakra_squad_home.png", class: "img-fluid"), simple_pages_index_path %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,30 +39,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="<%=simple_pages_about_path %>">About</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Men
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Clothing</a>
-              <a class="dropdown-item" href="#">Accessories</a>
-            </div>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Girls
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Clothing</a>
-              <a class="dropdown-item" href="#">Accessories</a>
-            </div>
+            <%= link_to "About", simple_pages_about_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Incense</a>
+            <%= link_to "Contact", simple_pages_contact_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<%=simple_pages_contact_path%>">Contact</a>
+            <%= link_to "Products", products_path, class: "nav-link" %>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -69,7 +54,7 @@
         </form>
       </div>
     </nav>
-
+      <!-- END OF NAVIGATION BAR -->
     <%= yield %>
     <footer>
       <span class="footer-copy">&copy; Sean River Mize 2018</span>

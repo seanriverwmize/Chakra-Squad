@@ -1,5 +1,5 @@
 <div class="col-sm-4">
-  <%= image_tag(product.image_url, class: "img-fluid") unless product.image_url.nil? %>
+  <%= link_to image_tag(product.image_url, class: "img-fluid product-image"), product unless product.image_url.nil? %>
   <strong><%= link_to product.name, product %></strong>
   <p><%= product.description %> Color: <%= product.color %></p>
   <strong> $<%= product.price%></strong>
