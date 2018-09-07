@@ -10,33 +10,38 @@
       </ul>
     </div>
   <% end %>
+  <div class="container-fluid instance-form">
+    <div class="row">
+      <div class="field col-sm-4">
+        <%= form.label :name, class: "field-label" %>
+        <%= form.text_field :name, class: "field-input" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <div class="field col-sm-4">
+        <%= form.label :color, class: "field-label" %>
+        <%= form.text_field :color, class: "field-input"  %>
+      </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+      <div class="field col-sm-4">
+        <%= form.label :price, class: "field-label" %>
+        <%= form.text_field :price, class: "field-input"  %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  </div>
+    <div class="field">
+      <%= form.label :image_url, class: "field-label" %>
+      <%= form.text_field :image_url, class: "field-input"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </div>
+    <div class="field">
+      <%= form.label :description, class: "field-label" %>
+      <%= form.text_area :description, class: "field-input", id: "instance-form-description" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+    <div class="actions" id="form-button">
+      <%= form.submit class: "btn btn-outline-success my-2 my-sm-0" %>
+    </div>
   </div>
 <% end %>

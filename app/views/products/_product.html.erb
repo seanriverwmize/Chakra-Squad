@@ -3,4 +3,5 @@
   <strong><%= link_to product.name, product %></strong>
   <p><%= product.description %> Color: <%= product.color %></p>
   <strong> $<%= product.price%></strong>
+  <%= link_to "Edit Product", [:edit, product] %>
 </div>

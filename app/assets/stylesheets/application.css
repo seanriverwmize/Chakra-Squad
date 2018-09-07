@@ -13,3 +13,56 @@
  *= require_tree .
  *= require_self
  */
+.btn-outline-success {
+  color: #673C5A;
+  border-color: #673C5A;
+}
+
+ .btn-outline-success:hover {
+   color: #F8F9FA;
+   border-color: #673C5A;
+   background-color: #673C5A;
+ }
+
+ .btn-outline-success:active:focus {
+   border-color: #673C5A !important;
+   background-color: #673C5A !important;
+   box-shadow: none !important;
+ }
+
+
+
+
+
+ .instance-form{
+   padding-top: 15px;
+   width: 90%;
+ }
+
+ #instance-form-description{
+   height: 200px;
+ }
+
+ .field-label{
+   color: #673C5A;
+   font-family: Helvetica, sans-serif;
+   font-size: 2em;
+   text-align: center;
+   margin: 1% auto;
+ }
+
+ .field-input{
+   display: block;
+   margin: auto;
+   width: 70%;
+   height: 40px;
+   font-family: Helvetica, sans-serif;
+   font-size: 1.3em;
+   padding: 4px 6px;
+   border-radius: 10px;
+   box-shadow: none;
+ }
+
+#form-button{
+  float: right;
+}

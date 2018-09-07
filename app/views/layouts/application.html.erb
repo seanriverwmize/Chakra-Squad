@@ -48,10 +48,10 @@
             <%= link_to "Products", products_path, class: "nav-link" %>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+        <%= form_with(url: products_path, method: "get", class: "form-inline my-2 my-lg-0", local: true) do |form| %>
+          <%= form.text_field :q, id: "q", class: "form-control mr-sm-2", placeholder: "Search", value: params[:q] %>
+          <%= form.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
       </div>
     </nav>
       <!-- END OF NAVIGATION BAR -->
