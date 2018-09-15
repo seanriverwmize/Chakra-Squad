@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  #set default host for dynamic links sent in emails:
+  config.action_mailer.default_url_options = { host: 'chakrasquad.herokuapp.com'}
 end
