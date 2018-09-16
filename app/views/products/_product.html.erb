@@ -2,6 +2,6 @@
   <%= link_to image_tag(product.image_url, class: "img-fluid product-image"), product unless product.image_url.nil? %>
   <strong><%= link_to product.name, product %></strong>
   <p><%= product.description %> Color: <%= product.color %></p>
-  <strong> $<%= product.price%></strong>
+  <strong><%= number_to_currency(product.price)%></strong>
   <%= link_to "Edit Product", [:edit, product] %>
 </div>
