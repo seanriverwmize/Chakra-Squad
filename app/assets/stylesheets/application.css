@@ -13,6 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.container-fluid{
+  margin: 0 auto;
+}
+
+
 .btn-outline-success {
   color: #673C5A;
   border-color: #673C5A;

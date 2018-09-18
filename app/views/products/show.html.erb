@@ -1,28 +1,33 @@
+<div class="row container-fluid">
+  <div class="col-sm-12 product_heading">
+    <h2>
+      <strong><%= @product.name %></strong>
+      <%= number_to_currency(@product.price) %>
+    </h2>
+  </div>
+  <div class="col-sm-12 show_product_image">
+    <%= image_tag(@product.image_url, class: "img-fluid") %>
+  </div>
+  <p class="col-sm-12">
+    <strong>Color:</strong>
+    <%= @product.color %>
+  </p>
+  <div class="col-sm-12 product_description">
+    <p>
+      <strong>Description:</strong>
+      <%= @product.description %>
+    </p>
+  </div>
+  <div class="col-sm-10">
+    <p>
+      <strong>Highest Rating:</strong>
+      <%= @product.highest_rating_comment.body %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
