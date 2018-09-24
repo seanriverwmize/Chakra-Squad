@@ -19,6 +19,12 @@
     </p>
   </div>
   <div class="col-sm-10">
+    <%= render 'new_comment' %>
+  </div>
+  <div class="col-sm-10">
+    <%= render 'comments' %>
+  </div>
+  <div class="col-sm-10">
     <p>
       <strong>Highest Rating:</strong>
       <%= @product.highest_rating_comment.body %>
