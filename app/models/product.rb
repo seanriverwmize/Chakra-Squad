@@ -10,5 +10,10 @@ class Product < ApplicationRecord
     else
       Product.where("name ilike ?", "%#{search_term}%")
     end
+
+    #finds the average of all comment ratings for the product show pages
+    def average_rating
+      comments.average(:rating).to_f
+    end
   end
 end
