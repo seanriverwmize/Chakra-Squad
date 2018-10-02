@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  validates :name, presence: true
   has_many :orders
   has_many :comments
   def highest_rating_comment
@@ -11,9 +12,9 @@ class Product < ApplicationRecord
       Product.where("name ilike ?", "%#{search_term}%")
     end
 
-    #finds the average of all comment ratings for the product show pages
-    def average_rating
-      comments.average(:rating).to_f
-    end
+  end
+  #finds the average of all comment ratings for the product show pages
+  def average_rating
+    comments.average(:rating).to_f
   end
 end
