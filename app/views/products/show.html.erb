@@ -26,6 +26,9 @@
     <%= render 'comments' %>
   </div>
   <div class="col-sm-10">
+    <%= will_paginate @comments %>
+  </div>
+  <div class="col-sm-10">
     <p>
       <strong>Highest Rating:</strong>
       <% if @comment && @comment.size >=1 %>
