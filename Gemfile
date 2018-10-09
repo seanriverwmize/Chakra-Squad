@@ -42,6 +42,14 @@ group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  #adds RSpec for testing. Using this instead of the default Rails test suite "minitest".
+
+end
+
+#adds RSpec for testing. Using this instead of the default Rails test suite "minitest".
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
