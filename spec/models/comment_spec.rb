@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe Comment do
   context "when one of the required attributes of a comment is missing" do
-    let(:user) {User.create!(email: "iamseanrivermize@gmail.com", password: "thepassword")}
-    let(:product) {Product.create!(name: "new product", description: "description of product")}
+    user = FactoryBot.create(:user)
+    product = FactoryBot.create(:product)
     it "Should be invalid because there is no body" do
       expect(Comment.new(user: user, product: product, rating: 2)).to_not be_valid
     end

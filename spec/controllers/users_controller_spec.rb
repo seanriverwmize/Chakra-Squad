@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe UsersController, type: :controller do
-  let(:user) {User.create!(email: "iamiamiam@gmail.com", password: "Rattle1234")}
-  let(:useruser) {User.create!(email: "whatever@gmail.com", password: "Rattle1234")}
+  user = FactoryBot.create(:user)
+  admin = FactoryBot.create(:admin)
   describe 'GET #show' do
     context 'when a user is logged in' do
       before do
@@ -25,7 +25,7 @@ describe UsersController, type: :controller do
         sign_in user
       end
       it 'redirects to root path' do
-        get :show, params: {id: useruser.id}
+        get :show, params: {id: admin.id}
         expect(response).to redirect_to(root_path)
       end
     end
