@@ -9,6 +9,9 @@
   <div class="col-sm-12 show_product_image">
     <%= image_tag(@product.image_url, class: "img-fluid") %>
   </div>
+  <%= form_with(url: '/payments/create') do |form| %>
+    <%= render partial: "shared/stripe_checkout_button" %>
+  <% end %>
   <p class="col-sm-12">
     <strong>Color:</strong>
     <%= @product.color %>
