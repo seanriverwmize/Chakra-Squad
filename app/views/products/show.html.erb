@@ -10,6 +10,7 @@
     <%= image_tag(@product.image_url, class: "img-fluid") %>
   </div>
   <%= form_with(url: '/payments/create') do |form| %>
+    <%= hidden_field_tag(:product_id, @product.id) %>
     <%= render partial: "shared/stripe_checkout_button" %>
   <% end %>
   <p class="col-sm-12">

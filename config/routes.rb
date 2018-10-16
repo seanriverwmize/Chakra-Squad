@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get 'simple_pages/index'
   root 'simple_pages#index'
   post 'simple_pages/thank_you'
+
+  post 'payments/create'
   resources :orders, only: [:index, :show, :create, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
