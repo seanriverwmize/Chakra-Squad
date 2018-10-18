@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     if params[:q]
       search_term = params[:q]
       @products = Product.search(search_term)
+      logger.debug "Showing all products with a name similar to: #{search_term}"
     else
       @products = Product.all
     end

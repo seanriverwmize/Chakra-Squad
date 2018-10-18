@@ -26,7 +26,7 @@ describe UsersController, type: :controller do
       end
       it 'redirects to root path' do
         get :show, params: {id: admin.id}
-        expect(response).to redirect_to(root_path)
+        expect(response).to_not be_ok
       end
     end
   end
