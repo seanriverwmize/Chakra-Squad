@@ -8,6 +8,7 @@ class PaymentsController < ApplicationController
     begin
       logger.debug "Creating payment with Stripe..."
       logger.debug "Price of payment: #{@product.price}"
+      
 
       charge = Stripe::Charge.create(
         amount: @price, # amount in cents, again
