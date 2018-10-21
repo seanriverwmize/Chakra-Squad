@@ -22,13 +22,13 @@ describe UsersController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
-    context 'when a user tried to access a different user show page' do
+    context 'when a user tried to access a different user edit page' do
       before do
         sign_in @user
       end
       it 'redirects to root path' do
-        get :show, params: {id: @admin.id}
-        expect(response).to_not be_ok
+        get :edit, params: {id: @admin.id}
+        expect(response).to redirect_to(root_path)
       end
     end
   end
