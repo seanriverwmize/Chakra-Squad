@@ -1,3 +1,5 @@
 <h1>Welcome to Chakra Squad!</h1>
 <h2 id="featured-product-heading">Express your Power</h2>
-<%= link_to image_tag(Product.find(1).image_url, class: "img-fluid product-image", id: "featured-product-image"), products_path %>
+<% if @product %>
+<%= link_to image_tag(@product.image_url, class: "img-fluid product-image", id: "featured-product-image"), products_path %>
+<% end %>

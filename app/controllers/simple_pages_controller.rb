@@ -1,5 +1,6 @@
 class SimplePagesController < ApplicationController
   def index
+    @product = Product.first
   end
   def landing_page
     @products = Product.limit(3)

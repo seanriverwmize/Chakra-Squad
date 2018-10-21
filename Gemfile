@@ -79,3 +79,5 @@ gem 'rails-controller-testing'
 gem 'stripe'
 
 gem 'factory_bot_rails'
+
+gem 'brakeman'
