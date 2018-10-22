@@ -1,10 +1,7 @@
 <h1>Edit Product</h1>
-<% if current_user && current_user.admin? %>
 
-  <%= render 'form', product: @product %>
 
-  <%= link_to 'Show', @product %> |
-  <%= link_to 'Back', products_path %>
-<% else %>
-  <p>You can't access this page.</p>
-<% end %>
+<%= render 'form', product: @product %>
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>
