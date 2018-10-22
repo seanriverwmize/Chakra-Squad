@@ -1,0 +1,7 @@
+$('#new_comment').html("Thank you for giving us your honest opinion of this product!!");
+
+$('.product-reviews').prepend("<%= j render @comment %>");
+
+$('#average_rating').attr('data-score', "<%= @product.average_rating %>");
+
+refreshRaty();
