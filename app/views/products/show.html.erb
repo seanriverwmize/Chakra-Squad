@@ -7,7 +7,7 @@
     </h2>
   </div>
   <div class="col-sm-12 show_product_image">
-    <%= image_tag(@product.image_url, class: "img-fluid") %>
+    <%= image_tag(@product.image_url, class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
   </div>
     <%= form_with(url: '/payments/create') do |form| %>
       <%= hidden_field_tag(:product_id, @product.id) %>
