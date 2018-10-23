@@ -17,7 +17,7 @@ var refreshRaty = function() {
   });
 };
 
-$(document).on('turbolinks:load ajaxSuccess', function(){
+$(document).on('turbolinks:load', function(){
   refreshRaty();
   $('.img-zoom').elevateZoom();
 });

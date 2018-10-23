@@ -1,28 +1,31 @@
 <div class="row container-fluid">
-  <div class="col-sm-12 product_heading">
-    <h2>
-      <strong><%= @product.name %></strong>
-      <%= number_to_currency(@product.price) %>
-      <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-    </h2>
-  </div>
-  <div class="col-sm-12 show_product_image">
-    <%= image_tag(@product.image_url, class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
-  </div>
-    <%= form_with(url: '/payments/create') do |form| %>
-      <%= hidden_field_tag(:product_id, @product.id) %>
-      <%= render partial: "shared/stripe_checkout_button" %>
-    <% end %>
-  <p class="col-sm-12">
-    <strong>Color:</strong>
-    <%= @product.color %>
-  </p>
-  <div class="col-sm-12 product_description">
-    <p>
-      <strong>Description:</strong>
-      <%= @product.description %>
+  <% cache @product do %>
+  
+    <div class="col-sm-12 product_heading">
+      <h2>
+        <strong><%= @product.name %></strong>
+        <%= number_to_currency(@product.price) %>
+        <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
+      </h2>
+    </div>
+    <div class="col-sm-12 show_product_image">
+      <%= image_tag(@product.image_url, class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
+    </div>
+      <%= form_with(url: '/payments/create') do |form| %>
+        <%= hidden_field_tag(:product_id, @product.id) %>
+        <%= render partial: "shared/stripe_checkout_button" %>
+      <% end %>
+    <p class="col-sm-12">
+      <strong>Color:</strong>
+      <%= @product.color %>
     </p>
-  </div>
+    <div class="col-sm-12 product_description">
+      <p>
+        <strong>Description:</strong>
+        <%= @product.description %>
+      </p>
+    </div>
+  <% end %>
   <div class="col-sm-10">
     <%= render 'new_comment' %>
   </div>

@@ -94,4 +94,15 @@ Rails.application.configure do
 
   #set default host for dynamic links sent in emails:
   config.action_mailer.default_url_options = { host: 'chakrasquad.herokuapp.com'}
+
+  #Configure the cache_store for Heroku using memcachier
+  config.cache_store = :mem_cache_store,
+  (ENV["MEMCHACHIER_SERVERS"] || "").split(","),
+  {:username => ENV["MEMCACHIER_USERNAME"],
+  :password => ENV["MEMCACHIER_PASSWORD"],
+  :failover => true,
+  :socket_timout => 1.5,
+  :socket_failure_delay => 0.2,
+  :down_retry_delay => 60
+  }
 end

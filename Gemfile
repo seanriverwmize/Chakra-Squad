@@ -81,3 +81,5 @@ gem 'stripe'
 gem 'factory_bot_rails'
 
 gem 'brakeman'
+
+gem 'dalli'

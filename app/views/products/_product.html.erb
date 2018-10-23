@@ -1,11 +1,13 @@
-<div class="col-sm-4">
-  <%= link_to image_tag(product.image_url, class: "img-fluid product-image"), product unless product.image_url.nil? %>
-  <strong><%= link_to product.name, product %></strong>
-  <p><%= product.description %> Color: <%= product.color %></p>
-  <% if product.price %>
-  <strong><%= number_to_currency(product.price)%></strong>
-  <% end %>
-  <% if signed_in? && current_user.admin? %>
-    <%= link_to "Edit Product", [:edit, product] %>
-  <% end %>
-</div>
+<% cache product do %>
+  <div class="col-sm-4">
+    <%= link_to image_tag(product.image_url, class: "img-fluid product-image"), product unless product.image_url.nil? %>
+    <strong><%= link_to product.name, product %></strong>
+    <p><%= product.description %> Color: <%= product.color %></p>
+    <% if product.price %>
+      <strong><%= number_to_currency(product.price)%></strong>
+    <% end %>
+    <% if signed_in? && current_user.admin? %>
+      <%= link_to "Edit Product", [:edit, product] %>
+    <% end %>
+  </div>
+<% end %>
