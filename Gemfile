@@ -83,3 +83,7 @@ gem 'factory_bot_rails'
 gem 'brakeman'
 
 gem 'dalli'
+
+gem 'redis-rails'
+
+gem 'newrelic_rpm'
