@@ -7,7 +7,7 @@ describe UsersController, type: :controller do
   end
   describe 'GET #show' do
     context 'when a user is logged in' do
-      before do
+      before :each do
         sign_in @user
       end
       it 'loads correct user details' do
@@ -23,7 +23,7 @@ describe UsersController, type: :controller do
       end
     end
     context 'when a user tried to access a different user edit page' do
-      before do
+      before :each do
         sign_in @user
       end
       it 'redirects to root path' do
