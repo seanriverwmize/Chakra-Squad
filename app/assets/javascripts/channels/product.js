@@ -12,12 +12,12 @@ App.product = App.cable.subscriptions.create("ProductChannel", {
     $(".alert.alert-info").show();
   },
 
-  listen_to_comments: function(){
+  listen_to_comments: function() {
     return this.perform('listen', {
       product_id: $("[data-product-id]").data("product-id")
     });
   }
 });
-$(document).on('turbolinks:load', function{
+$(document).on('turbolinks:load', function() {
   App.product.listen_to_comments();
 });
