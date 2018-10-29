@@ -15,5 +15,6 @@
 
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>
+<% if can? :create, Product %>
+  <%= link_to 'New Product', new_product_path %>
+<% end %>

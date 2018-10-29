@@ -6,7 +6,7 @@
     <% if product.price %>
       <strong><%= number_to_currency(product.price)%></strong>
     <% end %>
-    <% if signed_in? && current_user.admin? %>
+    <% if can? :update, Product %>
       <%= link_to "Edit Product", [:edit, product] %>
     <% end %>
   </div>

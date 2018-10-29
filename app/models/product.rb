@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   validates :name, presence: true
+  validates :price, presence: true
+  validates_numericality_of :price, :greater_than => 0
   has_many :orders
   has_many :comments
   def highest_rating_comment
