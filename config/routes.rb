@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout' }, :controllers => {:registrations => "registrations"}
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+
   resources :users
   resources :products do
     resources :comments
