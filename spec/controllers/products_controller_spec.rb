@@ -25,34 +25,68 @@ describe ProductsController, type: :controller do
     end
   end
 
- #invoke cotnroller
-  describe 'POST #create' do
-    context 'when a product is created correctly' do
+  describe 'GET #new' do
+    context 'when product new page is requested by admin' do
+      before do
+        sign_in @admin
+      end
+      it 'successfully loads the products/new page' do
+        get :new
+        expect(response).to be_ok
+      end
+    end
+    context 'when product new page is requested by a non-admin user' do
       before do
         sign_in @user
       end
-      it 'creates a product' do
-        @product = FactoryBot.create(:product)
-        expect(response).to be_successful
+      it 'redirects to root path' do
+        get :new
+        expect(response).to redirect_to(root_path)
       end
     end
-    context 'when a product is not made correctly' do
-      it 'does not make a product' do
-        expect(Product.new(description: "This is a product without a name")).not_to be_valid
+  end
+
+  describe 'POST #create' do
+    context 'when a product is created correctly' do
+      before do
+        sign_in @admin
+      end
+      it 'increases Product count by 1' do
+        expect{
+        post :create, params: { product: @product.attributes } }.to change(Product, :count).by(1)
+      end
+    end
+    context 'when a product create attempt is missing a name' do
+      before do
+        sign_in @admin
+      end
+      let(:new_product) { FactoryBot.build(:product, name:"") }
+      it 'increases Product count by 0' do
+        expect{
+        post :create, params: { product: new_product.attributes } }.to change(Product, :count).by(0)
       end
     end
   end
 
  #invoke controller
   describe 'PATCH #update' do
-    context 'when a product is correctly updated' do
+    context 'when a product is correctly updated by an administrator' do
       before do
         sign_in @admin
       end
-      it 'successfully updates product' do
-        @product.update(id: @product.id, name: @product.name, description: "New Description", color: @product.color, image_url: @product.image_url)
-        expect(response).to be_successful
-        expect(response).to redirect_to(product_url(@product))
+      let(:updated_product) { FactoryBot.build(:product, name:"new new new") }
+      it 'successfully updates product name' do
+        put :update, params: { product: updated_product.attributes, id: @product.id}
+        expect(Product.first.name).to eq("new new new")
+      end
+    end
+    context 'when a product update attempt is made by a non-administrator' do
+      before do
+        sign_in @user
+      end
+      let(:updated_product) { FactoryBot.build(:product, name:"new new new") }
+      it 'does not affect any product attributes' do
+        expect(Product.first.name).to_not eq("new new new")
       end
     end
   end
@@ -63,7 +97,7 @@ describe ProductsController, type: :controller do
         sign_in @admin
       end
       it 'redirects to products index page' do
-        delete(product_url(@product))
+        delete :destroy, params: {id: @product.id}
         expect(response).to redirect_to(products_url)
       end
     end

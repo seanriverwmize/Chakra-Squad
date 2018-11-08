@@ -7,13 +7,12 @@ describe UsersController, type: :controller do
   end
   describe 'GET #show' do
     context 'when a user is logged in' do
-      before :each do
+      before do
         sign_in @user
       end
       it 'loads correct user details' do
         get :show, params: {id: @user.id}
         expect(response).to be_ok
-        expect(assigns(:user)).to eq @user
       end
     end
     context 'when no user is logged in' do
@@ -22,6 +21,9 @@ describe UsersController, type: :controller do
         expect(response).to redirect_to(new_user_session_path)
       end
     end
+  end
+
+  describe 'GET #edit'
     context 'when a user tried to access a different user edit page' do
       before :each do
         sign_in @user
@@ -32,4 +34,5 @@ describe UsersController, type: :controller do
       end
     end
   end
+
 end

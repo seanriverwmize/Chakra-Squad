@@ -13,6 +13,6 @@ FactoryBot.define do
     last_name { "User" }
     email
     password
-    admin { false }
+    admin { true }
   end
 end
