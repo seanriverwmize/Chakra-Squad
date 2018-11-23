@@ -1,5 +1,4 @@
 <div class="row container-fluid", data-product-id="<%= @product.id %>">
-  <% cache @product do %>
 
     <div class="col-sm-12 product_heading">
       <h2>
@@ -8,12 +7,18 @@
         <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
       </h2>
     </div>
-    <div class="col-sm-12 show_product_image">
-      <%= image_tag(@product.image_url, class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
-    </div>
-      <%= form_with(url: '/payments/create') do |form| %>
-        <%= hidden_field_tag(:product_id, @product.id) %>
-        <%= render partial: "shared/stripe_checkout_button" %>
+      <div class="col-sm-12 show_product_image">
+        <%= image_tag(@product.image_url, class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
+      </div>
+      <% if signed_in? %>
+        <div>
+          <%= form_with(url: '/payments/create') do |form| %>
+            <%= hidden_field_tag(:product_id, @product.id) %>
+            <%= render partial: "shared/stripe_checkout_button" %>
+          <% end %>
+        </div>
+      <% else %>
+        <p>You must sign in to Purchase a Product.</p>
       <% end %>
     <p class="col-sm-12">
       <strong>Color:</strong>
@@ -25,7 +30,6 @@
         <%= @product.description %>
       </p>
     </div>
-  <% end %>
   <div class="col-sm-10">
     <%= render 'new_comment' %>
   </div>

@@ -86,6 +86,7 @@ describe ProductsController, type: :controller do
       end
       let(:updated_product) { FactoryBot.build(:product, name:"new new new") }
       it 'does not affect any product attributes' do
+        put :update, params: { product: updated_product.attributes, id: @product.id}
         expect(Product.first.name).to_not eq("new new new")
       end
     end

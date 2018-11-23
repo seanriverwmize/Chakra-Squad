@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
     begin
       logger.debug "Creating payment with Stripe..."
       logger.debug "Price of payment: #{@product.price}"
-      
+
 
       charge = Stripe::Charge.create(
         amount: @price, # amount in cents, again
@@ -19,7 +19,7 @@ class PaymentsController < ApplicationController
 
       if charge.paid
         logger.debug "Charge was paid."
-        Order.create(product_id: @product.id, user_id: @user, total: @product.price)
+        Order.create!(product_id: @product.id, user_id: @user, total: @product.price)
       end
     rescue Stripe::CardError => e
       # The card has been declined
