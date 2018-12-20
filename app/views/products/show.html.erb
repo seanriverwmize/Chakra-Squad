@@ -7,8 +7,15 @@
         <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
       </h2>
     </div>
+
       <div class="col-sm-12 show_product_image">
-        <%= image_tag(@product.image_url, class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
+        <div class="col-xs-12">
+          (Scroll on image to zoom!)
+        </div>
+        <div class="col-xs-12">
+          <%= image_tag(@product.image_url, width: "300", class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
+        </div>
+
       </div>
       <% if signed_in? %>
         <div>

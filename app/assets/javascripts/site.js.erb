@@ -19,5 +19,5 @@ var refreshRaty = function() {
 
 $(document).on('turbolinks:load', function(){
   refreshRaty();
-  $('.img-zoom').elevateZoom();
+  $('.img-zoom').elevateZoom({scrollZoom: true});
 });
