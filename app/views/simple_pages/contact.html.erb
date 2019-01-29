@@ -1,26 +1,25 @@
 <h1>Contact Us</h1>
 <div class="contact-p">
   <p>Send us a message if you have any questions about our products or business!</p>
-  <p>We will get back to you within 48 hours.</p>
+  <p>We will usually get back to you within 48 hours.</p>
 </div>
 <%= flash[:notice] %>
-
-<%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
-<div class="row">
-  <div class="form-group">
+<div class="form-contact">
+  <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
+  <div class="form-group name">
     <%= form.label :name %>
-    <%= form.text_field :name, class: "form-control", placeholder: "Enter Name" %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter Name", :required => true %>
   </div>
   <div class="form-group">
     <%= form.label :email %>
-    <%= form.text_field :email, class: "form-control", placeholder: "Enter Email" %>
+    <%= form.text_field :email, class: "form-control email", placeholder: "Enter Email", :required => true %>
   </div>
   <div class="form-group">
     <%= form.label :message %>
-    <%= form.text_area :message, class: "form-control", placeholder: "Enter Message", rows: 5 %>
+    <%= form.text_area :message, class: "form-control message", placeholder: "Enter Message", rows: 6, :required => true %>
   </div>
+  <div class="contact-send">
+    <%= form.submit "Send", class: "form_label btn btn-primary" %>
+  </div>
+  <% end %>
 </div>
-<div class="contact-send">
-  <%= form.submit "Send", class: "form_label btn btn-primary" %>
-</div>
-<% end %>

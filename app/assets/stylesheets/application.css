@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+html{
+  width: 100%;
+}
+ body{
+   background-image: url('anamnisar.jpg');
+   width: 100%;
+   padding: 0;
+ }
+
 .container-fluid{
   margin: 0 auto;
 }
@@ -35,7 +44,38 @@
    box-shadow: none !important;
  }
 
+a.index-product-names{
+  font-family: 'Oleo Script', cursive;
+  font-size: 1.6em;
+  color: black;
+  position: relative;
+}
 
+a.index-product-names:hover{
+  color: black;
+  text-decoration: none;
+}
+
+a.index-product-names:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a.index-product-names:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
 
 
 

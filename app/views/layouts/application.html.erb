@@ -29,35 +29,35 @@
     <% end %>
       <!-- NAVIGATION BAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to image_tag("chakra_squad_home.png", class: "img-fluid"), simple_pages_index_path %>
+      <%= link_to image_tag("chakra_squad_home.png", class: "img-fluid navbar-image"), simple_pages_index_path %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center">
             <%= link_to "About", simple_pages_about_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center">
             <%= link_to "Contact", simple_pages_contact_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center">
             <%= link_to "Products", products_path, class: "nav-link" %>
           </li>
         </ul>
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center">
             <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>
           </li>
           <% else %>
-          <li class="nav-item">
+          <li class="nav-item d-flex justify-content-center">
             <%= link_to('Login', new_user_session_path, class: "nav-link") %>
           </li>
           <% end %>
         </ul>
-        <%= form_with(url: products_path, method: "get", class: "form-inline my-2 my-lg-0", local: true) do |form| %>
+        <%= form_with(url: products_path, method: "get", class: "form-inline my-2 my-lg-0 d-flex justify-content-center", id: 'searchbar', local: true) do |form| %>
           <%= form.text_field :q, id: "q", class: "form-control mr-sm-2", placeholder: "Search", value: params[:q] %>
           <%= form.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
         <% end %>
@@ -65,6 +65,7 @@
     </nav>
       <!-- END OF NAVIGATION BAR -->
     <%= yield %>
+    <br>
     <footer>
       <span class="footer-copy">&copy; Sean River Mize 2018</span>
     </footer>
