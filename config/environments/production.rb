@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  Enigma::Application.configure do
+    config.assets.compile = true
+  end
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -109,5 +111,4 @@ Rails.application.configure do
   config.web_socket_server_url = "wss//chakrasquad.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://chakrasquad.herokuapp.com', 'http://chakrasquad.herokuapp.com']
 
-  config.public_file_server.enabled
 end
