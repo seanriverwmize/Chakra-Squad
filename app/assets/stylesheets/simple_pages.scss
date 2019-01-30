@@ -91,8 +91,13 @@ h1{
 }
 
 .about-2{
-  background: background: asset-url('smiling_woman.png', image)
   height: 100%;
+  position: relative;
+}
+
+.about-2 img{
+  width: 100%;
+  position: static;
 }
 
 .about-row{
