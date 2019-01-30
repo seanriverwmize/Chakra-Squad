@@ -1,9 +1,0 @@
-<h1>Welcome to Chakra Squad!</h1>
-<h2 id="featured-product-heading">Express your Power</h2>
-<marquee scrollamount="6" direction="left" behavior="scroll">
-  <%= image_tag('chakra_scroller.png', alt: 'chakra scrolling image', class: 'chakra-scroller' ) %>
-</marquee>
-<% if @product %>
-<%= link_to image_tag(@product.image_url, class: "img-fluid product-image", id: "featured-product-image"), products_path %>
-
-<% end %>
