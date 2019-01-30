@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  Enigma::Application.configure do
+  ChakraSquad::Application.configure do
     config.assets.compile = true
   end
   # Code is not reloaded between requests.
