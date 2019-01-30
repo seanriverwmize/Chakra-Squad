@@ -87,3 +87,5 @@ gem 'dalli'
 gem 'redis-rails'
 
 gem 'newrelic_rpm'
+
+gem 'inline_svg'

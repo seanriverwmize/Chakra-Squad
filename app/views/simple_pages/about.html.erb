@@ -3,7 +3,7 @@
   <br>
   <div class="about-row row">
     <div class="col-sm-4">
-      <%= image_tag('smiling_woman.jpg', class: 'img-fluid about-img') %>
+      <%= inline_svg 'undraw_joyride_hnno.svg', class: 'joyride-svg' %>
     </div>
     <div class="col-sm-8">
       <p class="about-p">
@@ -24,5 +24,23 @@
   </marquee>
 </div>
 <div class="about-2">
-
+  <div class="row about-row">
+    <div class="col-sm-12 col-md-4">
+      <p class="about-p">
+        How do we do it?
+        <br>
+        By connecting people with the power of metaphysical tools and adornments.
+        <%=link_to 'Shop our Products', products_path, class: 'about-link' %> to learn more.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="about-end">
+  <p class="about-p bio">Who are we? </p>
+  <br>
+  <p class="about-p bio">
+    As the founder, owner and lead developer of Chakra Squad, Sean River
+    is the key stone of this business. He is a 19 year-old full-stack web developer,
+    self-educator, and wellness warrior. To learn more about him, <%= link_to 'Visit his website.', 'https://seanrivermize.com/', target: '_blank', class: 'about-link' %>
+  </p>
 </div>

@@ -64,6 +64,7 @@ h1{
 /* About Page */
 .about-header{
   font-size: 6em;
+  text-shadow: 4px 4px purple;
 }
 
 .about-1, .about-2{
@@ -71,7 +72,7 @@ h1{
   height: 100%;
   width: 100%;
   background-attachment: fixed;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 5%;
@@ -82,15 +83,14 @@ h1{
 }
 
 .about-2{
-  background-image: url(anamnisar.jpg);
-  height: 300px;
+  background-image: url(smiling_woman.jpg);
+  height: 100%;
 }
-
-
 
 .about-row{
   width: 90%;
   margin: 0 auto;
+  height: 100%;
 }
 
 .about-img{
@@ -99,22 +99,49 @@ h1{
 
 .about-p{
   font-size: 2.2em;
+  position: relative;
+  color: white;
+}
+
+.about-p.bio{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.about-link{
+  color: lightsalmon;
+}
+
+.about-link:hover{
+  color: darkorchid;
+}
+
+.about-1 img, .about-2 img{
+  border-radius: 0;
+  position: absolute;
 }
 
 .filler{
   height: 100px;
   width: 100%;
   background-color: purple;
-  filter: blur(20px);
+}
+
+.about-end{
+  height: 100%;
+  background-color: black;
+}
+
+.joyride-svg{
+  width: 100%;
+  height: 100%;
 }
 /*end of About Page */
 
 /* Footer */
 footer{
-  text-align: center;
-}
-
-.fb-page{
-  width: 200px;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
 }
 /* end of Footer */
