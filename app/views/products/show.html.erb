@@ -1,42 +1,50 @@
 <div class="row container-fluid", data-product-id="<%= @product.id %>">
 
-    <div class="col-sm-12 product_heading">
-      <h2>
-        <strong><%= @product.name %></strong>
-        <%= number_to_currency(@product.price) %>
-        <p>Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div> </p>
-      </h2>
+  <div class="col-sm-12 product_heading">
+    <div class='back-button'>
+      <%= link_to 'Back', products_path, class: 'btn btn-primary' %>
+    </div>
+    <h1>
+      <strong><%= @product.name %></strong>
+    </h1>
+    <%= number_to_currency(@product.price) %>
+    <div>
+      Average Rating: <div id="average-rating" class="rated" data-score="<%= @product.average_rating %>"></div>
+    </div>
+  </div>
+  <% if can? :update, Product %>
+    <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
+    <%= link_to 'Destroy', @product, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-primary' %>
+  <% end %>
+  <div class="col-sm-12 show_product_image">
+    <div class="col-xs-12">
+      (Scroll on image to zoom!)
+    </div>
+    <div class="col-xs-12">
+      <%= image_tag(@product.image_url, width: "300", class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
     </div>
 
-      <div class="col-sm-12 show_product_image">
-        <div class="col-xs-12">
-          (Scroll on image to zoom!)
-        </div>
-        <div class="col-xs-12">
-          <%= image_tag(@product.image_url, width: "300", class: "img-fluid img-zoom", data_zoom_image: "#{@product.image_url}") %>
-        </div>
-
-      </div>
-      <% if signed_in? %>
-        <div>
-          <%= form_with(url: '/payments/create') do |form| %>
-            <%= hidden_field_tag(:product_id, @product.id) %>
-            <%= render partial: "shared/stripe_checkout_button" %>
-          <% end %>
-        </div>
-      <% else %>
-        <p>You must sign in to Purchase a Product.</p>
+  </div>
+  <% if signed_in? %>
+    <div>
+      <%= form_with(url: '/payments/create') do |form| %>
+        <%= hidden_field_tag(:product_id, @product.id) %>
+        <%= render partial: "shared/stripe_checkout_button" %>
       <% end %>
-    <p class="col-sm-12">
-      <strong>Color:</strong>
-      <%= @product.color %>
-    </p>
-    <div class="col-sm-12 product_description">
-      <p>
-        <strong>Description:</strong>
-        <%= @product.description %>
-      </p>
     </div>
+  <% else %>
+    <p>You must sign in to Purchase a Product.</p>
+  <% end %>
+  <p class="col-sm-12">
+    <strong>Color:</strong>
+    <%= @product.color %>
+  </p>
+  <div class="col-sm-12 product_description">
+    <p>
+      <strong>Description:</strong>
+      <%= @product.description %>
+    </p>
+  </div>
   <div class="col-sm-10">
     <%= render 'new_comment' %>
   </div>
@@ -47,19 +55,12 @@
   <div class="col-sm-10 pagination-links">
     <%= will_paginate @comments %>
   </div>
-  <div class="col-sm-10">
-    <p>
-      <strong>Highest Rating:</strong>
-      <% if @comment && @comment.size >=1 %>
-      <%= @product.highest_rating_comment.body %>
-      <% end %>
-    </p>
-  </div>
+  <% if @product.highest_rating_comment %>
+    <div class="col-sm-10">
+      <p>
+        <strong>Best Rating:</strong>
+        <%= @product.highest_rating_comment.body %>
+      </p>
+    </div>
+  <% end %>
 </div>
-<% if can? :update, Product %>
-  <%= link_to 'Edit', edit_product_path(@product) %>
-  <%= link_to 'Destroy', @product, method: :delete, data: {confirm: 'Are you sure?'} %>
-<% end %>
-
-
-<%= link_to 'Back', products_path %>
