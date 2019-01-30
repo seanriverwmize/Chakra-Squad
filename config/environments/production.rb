@@ -108,4 +108,6 @@ Rails.application.configure do
 
   config.web_socket_server_url = "wss//chakrasquad.herokuapp.com/cable"
   config.action_cable.allowed_request_origins = ['https://chakrasquad.herokuapp.com', 'http://chakrasquad.herokuapp.com']
+
+  config.public_file_server.enabled
 end
