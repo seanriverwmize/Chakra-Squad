@@ -33,7 +33,7 @@
       <% end %>
     </div>
   <% else %>
-    <p>You must sign in to Purchase a Product.</p>
+    <p>You must <%= link_to 'sign in', new_user_session_path %> to Purchase a Product.</p>
   <% end %>
   <p class="col-sm-12">
     <strong>Color:</strong>
