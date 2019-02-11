@@ -8,3 +8,4 @@ Chakra Squad is a complete ecommerce website capable of supporting a database of
 * JavaScript and jQuery used for implementing user-friendly experience
 * Bootstrap frontend Framework
 * HTML5 & CSS3
+* Testing done with rspec 
