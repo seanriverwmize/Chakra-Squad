@@ -23,12 +23,10 @@ describe UsersController, type: :controller do
     end
   end
 
-  describe 'GET #edit'
+  describe 'GET #edit' do
     context 'when a user tried to access a different user edit page' do
-      before :each do
-        sign_in @user
-      end
       it 'redirects to root path' do
+        sign_in @user
         get :edit, params: {id: @admin.id}
         expect(response).to redirect_to(root_path)
       end
